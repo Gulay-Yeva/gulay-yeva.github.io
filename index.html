@@ -1,186 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Gulay Aliyeva | Portfolio</title>
-  <meta name="description" content="Gulay Aliyeva — Why I chose engineering, how I learn, and what I’m building in energy systems." />
+  <meta name="description" content="Gulay Aliyeva — Electrical & Electronics Engineering student. Offshore + renewable energy interests."/>
 
   <style>
     :root{
-      /* baby palette */
-      --babyBlue:#bfe6ff;
-      --babyGreen:#c9f2dc;
+      /* Baby palette */
+      --blue:#bfe6ff;
+      --green:#c9f2dc;
 
-      /* neutrals */
-      --ink:#16202e;
-      --muted:#445166;
-
+      /* Neutrals */
+      --ink:#15202b;
+      --muted:#475569;
       --paper:#fbfcfe;
       --paper2:#f6fbff;
+      --line: rgba(21,32,43,.12);
 
-      --card: rgba(255,255,255,.72);
-      --line: rgba(22,32,46,.10);
-
-      --shadow: 0 10px 28px rgba(17,24,39,.10);
-      --shadow2: 0 14px 34px rgba(17,24,39,.14);
-
-      --radius: 20px;
+      --radius: 18px;
+      --shadow: 0 10px 28px rgba(15,23,42,.10);
+      --shadow2: 0 14px 34px rgba(15,23,42,.13);
       --focus: 0 0 0 4px rgba(191,230,255,.45);
-    }
-
-    [data-theme="dim"]{
-      --ink:#eef2ff;
-      --muted:#c8d2e3;
-
-      --paper:#0b1220;
-      --paper2:#071827;
-
-      --card: rgba(17,24,39,.62);
-      --line: rgba(255,255,255,.12);
-
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --shadow2: 0 16px 46px rgba(0,0,0,.45);
-
-      --focus: 0 0 0 4px rgba(191,230,255,.22);
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: "Times New Roman", Times, serif;
+      font-family:"Times New Roman", Times, serif;
       color: var(--ink);
       background:
-        radial-gradient(900px 520px at 12% 12%, rgba(191,230,255,.38), transparent 60%),
-        radial-gradient(900px 520px at 90% 22%, rgba(201,242,220,.34), transparent 60%),
+        radial-gradient(900px 520px at 12% 12%, rgba(191,230,255,.34), transparent 60%),
+        radial-gradient(900px 520px at 88% 18%, rgba(201,242,220,.30), transparent 60%),
         linear-gradient(165deg, var(--paper), var(--paper2));
-      min-height:100vh;
     }
 
     a{
       color: inherit;
       text-decoration: none;
-      border-bottom: 1px solid rgba(22,32,46,.28);
+      border-bottom: 1px solid rgba(21,32,43,.25);
     }
-    [data-theme="dim"] a{ border-bottom-color: rgba(255,255,255,.20); }
-    a:hover{ border-bottom-color: rgba(22,32,46,.55); }
+    a:hover{ border-bottom-color: rgba(21,32,43,.55); }
 
     .wrap{
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 22px 18px 70px;
     }
 
-    /* top bar */
-    .topbar{
+    /* Top nav (like the reference) */
+    .nav{
       position: sticky;
       top: 12px;
       z-index: 10;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      padding: 12px 14px;
+
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 12px;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap: 12px;
-      min-width: 230px;
+      min-width: 240px;
     }
     .mark{
-      width: 34px; height: 34px;
+      width: 34px;
+      height: 34px;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--babyBlue), var(--babyGreen));
-      border: 1px solid rgba(255,255,255,.55);
-      box-shadow: 0 12px 22px rgba(17,24,39,.08);
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      border: 1px solid rgba(255,255,255,.65);
+      box-shadow: 0 12px 22px rgba(15,23,42,.08);
+      flex: 0 0 auto;
     }
-    .brand b{ display:block; font-size: 16px; letter-spacing: .2px; }
+    .brand b{ display:block; font-size: 16px; letter-spacing:.2px; }
     .brand span{ display:block; font-size: 13px; color: var(--muted); margin-top: 2px; }
 
-    nav{
+    .links{
       display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      flex-wrap:wrap;
+      gap: 12px;
       justify-content:center;
     }
-    nav a{
-      font-size: 13.5px;
-      color: var(--muted);
+    .links a{
+      border-bottom: none;
       padding: 7px 10px;
       border-radius: 12px;
-      border-bottom: none;
-      transition: background .15s ease, transform .15s ease, color .15s ease;
+      color: var(--muted);
+      font-size: 14px;
+      transition: transform .15s ease, background .15s ease, color .15s ease;
     }
-    nav a:hover{
+    .links a:hover{
+      background: rgba(191,230,255,.20);
       color: var(--ink);
-      background: rgba(191,230,255,.18);
       transform: translateY(-1px);
     }
 
     .actions{
       display:flex;
-      gap: 8px;
       align-items:center;
+      gap: 8px;
+      min-width: 240px;
       justify-content:flex-end;
-      min-width: 230px;
     }
+
     .btn{
-      font-family: "Times New Roman", Times, serif;
-      font-size: 13.5px;
-      cursor: pointer;
-      border-radius: 12px;
-      padding: 8px 10px;
+      font-family:"Times New Roman", Times, serif;
+      font-size: 14px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,.18);
       color: var(--ink);
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
     }
-    [data-theme="dim"] .btn{ background: rgba(255,255,255,.06); }
     .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow2); }
     .btn:focus{ outline:none; box-shadow: var(--focus); }
 
     .btn.soft{
       border: none;
       background: linear-gradient(135deg, rgba(191,230,255,.95), rgba(201,242,220,.95));
-      color: #0b1220;
     }
 
-    /* hero */
+    .menuBtn{ display:none; }
+    .mobileMenu{ display:none; margin-top: 10px; }
+    .mobileMenu a{
+      display:block;
+      padding: 10px 10px;
+      border-radius: 12px;
+      border-bottom: none;
+      color: var(--muted);
+    }
+    .mobileMenu a:hover{ background: rgba(201,242,220,.22); color: var(--ink); }
+
+    /* Hero */
     .hero{
       margin-top: 16px;
-      padding: 22px 22px 18px;
-      border-radius: calc(var(--radius) + 4px);
+      padding: 22px;
       border: 1px solid var(--line);
-      background: var(--card);
+      border-radius: calc(var(--radius) + 4px);
+      background: rgba(255,255,255,.70);
       box-shadow: var(--shadow);
     }
     h1{
       margin:0;
-      font-size: 34px;
-      font-weight: 700;
-      letter-spacing: .2px;
+      font-size: 40px;
+      letter-spacing: .1px;
     }
-    .subtitle{
-      margin: 10px 0 0;
+    .lead{
+      margin-top: 10px;
+      font-size: 17px;
+      line-height: 1.75;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.7;
-      max-width: 80ch;
+      max-width: 82ch;
     }
-    .mini{
+    .lead strong{ color: var(--ink); font-weight: 700; }
+
+    .micro{
       margin-top: 14px;
       display:flex;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
       gap: 10px;
+      align-items:center;
       color: var(--muted);
       font-size: 14px;
     }
@@ -193,23 +186,16 @@
       border: 1px solid var(--line);
       background: rgba(255,255,255,.18);
     }
-    [data-theme="dim"] .pill{ background: rgba(255,255,255,.06); }
 
-    /* sections */
+    /* Sections */
     .section{
       margin-top: 14px;
+      padding: 18px;
       border: 1px solid var(--line);
-      background: var(--card);
       border-radius: var(--radius);
+      background: rgba(255,255,255,.64);
       box-shadow: var(--shadow);
-      padding: 18px 18px 16px;
-      transition: transform .16s ease, box-shadow .16s ease;
     }
-    .section:hover{
-      transform: translateY(-2px);
-      box-shadow: var(--shadow2);
-    }
-
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -219,25 +205,16 @@
       margin-bottom: 8px;
     }
     .dot{
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--babyBlue), var(--babyGreen));
-      border: 1px solid rgba(255,255,255,.6);
+      width:10px; height:10px;
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      border: 1px solid rgba(255,255,255,.7);
     }
-
-    h2{
-      margin: 0 0 10px;
-      font-size: 20px;
-      letter-spacing: .2px;
-    }
-    p, li{
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.75;
-    }
+    h2{ margin:0 0 10px; font-size: 22px; }
+    p{ margin:0; color: var(--muted); font-size: 16px; line-height: 1.8; }
     p + p{ margin-top: 10px; }
 
+    /* Portfolio grid */
     .grid{
       margin-top: 12px;
       display:grid;
@@ -247,26 +224,34 @@
     .card{
       grid-column: span 6;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.20);
       border-radius: var(--radius);
+      background: rgba(255,255,255,.18);
       padding: 16px;
+      transition: transform .15s ease, box-shadow .15s ease;
     }
-    [data-theme="dim"] .card{ background: rgba(255,255,255,.06); }
+    .card:hover{ transform: translateY(-2px); box-shadow: var(--shadow2); }
     .card b{ color: var(--ink); }
-    .card p{ margin-top: 6px; }
+    .card .meta{ margin-top: 8px; font-size: 14px; color: var(--muted); }
 
-    ul{ margin: 10px 0 0; padding-left: 18px; }
-    li{ margin: 6px 0; }
-
-    .split{
+    .thumb{
+      width:100%;
+      height: 220px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(191,230,255,.55), rgba(201,242,220,.55));
+      overflow:hidden;
+      margin-bottom: 12px;
       display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
       align-items:center;
-      justify-content:space-between;
+      justify-content:center;
+      color: rgba(21,32,43,.65);
+      font-size: 14px;
     }
+    /* If you add images: <img class="thumbImg" ...> inside .thumb */
+    .thumbImg{ width:100%; height:100%; object-fit:cover; display:block; }
 
+    /* Footer */
     footer{
       margin-top: 18px;
       text-align:center;
@@ -274,19 +259,13 @@
       font-size: 12.5px;
     }
 
-    /* gentle highlight on navigation */
-    .flash{ animation: flash 1.05s ease; }
-    @keyframes flash{
-      0%{ box-shadow: var(--shadow), 0 0 0 0 rgba(191,230,255,.0); }
-      35%{ box-shadow: var(--shadow), 0 0 0 6px rgba(191,230,255,.28); }
-      100%{ box-shadow: var(--shadow), 0 0 0 0 rgba(191,230,255,.0); }
-    }
-
-    @media (max-width: 860px){
-      .brand{ min-width:auto; }
-      .actions{ min-width:auto; }
+    @media (max-width: 880px){
+      h1{ font-size: 32px; }
       .card{ grid-column: span 12; }
-      h1{ font-size: 28px; }
+      .brand, .actions{ min-width:auto; }
+      .links{ display:none; }
+      .menuBtn{ display:inline-block; }
+      .mobileMenu{ display:block; }
     }
   </style>
 </head>
@@ -294,199 +273,165 @@
 <body>
   <div class="wrap">
 
-    <header class="topbar">
+    <header class="nav">
       <div class="brand">
         <div class="mark" aria-hidden="true"></div>
         <div>
           <b>Gulay Aliyeva</b>
-          <span>EEE student · Energy systems</span>
+          <span>Electrical & Electronics Engineering · Energy</span>
         </div>
       </div>
 
-      <nav aria-label="Primary">
-        <a href="#why" class="navlink">Why</a>
-        <a href="#how" class="navlink">How</a>
-        <a href="#what" class="navlink">What</a>
+      <nav class="links" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#resume">Resume</a>
+        <a href="#giving">Giving Back</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <div class="actions">
-        <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">Dim</button>
-        <a class="btn soft" href="#what">Work</a>
+        <button class="btn menuBtn" id="menuBtn" type="button">Menu</button>
+        <button class="btn" id="copyBtn" type="button">Copy email</button>
+        <a class="btn soft" href="#contact">Contact</a>
+      </div>
+
+      <div class="mobileMenu" id="mobileMenu" hidden>
+        <a href="#home">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#resume">Resume</a>
+        <a href="#giving">Giving Back</a>
+        <a href="#contact">Contact</a>
       </div>
     </header>
 
-    <section class="hero">
-      <h1>Hi, I’m Gulay.</h1>
-      <p class="subtitle">
-        I’m a second-year Electrical and Electronics Engineering student. I’m interested in the energy sector,
-        especially offshore environments and renewable energy. I like engineering that is careful, practical,
-        and connected to real systems.
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <h1>Hi, I’m Gulay Aliyeva</h1>
+      <p class="lead">
+        I’m an Electrical and Electronics Engineering student with a strong interest in the <strong>energy sector</strong>.
+        I’m especially curious about <strong>offshore environments</strong> and <strong>renewable energy systems</strong>,
+        because they combine safety, reliability, and real-world responsibility.
       </p>
 
-      <div class="mini">
+      <div class="micro">
         <span class="pill">FLEX exchange year · USA</span>
-        <span class="pill">Offshore interest</span>
-        <span class="pill">Renewable energy</span>
-      </div>
-
-      <div class="split">
-        <span class="pill">Email: <span id="emailText">your@email.com</span></span>
-        <button class="btn" id="copyEmailBtn" type="button">Copy email</button>
+        <span class="pill">Based in Azerbaijan</span>
+        <span class="pill">Learning by building</span>
+        <span class="pill">Email: <span id="email">your@email.com</span></span>
         <span class="pill"><a href="#" target="_blank" rel="noreferrer">LinkedIn</a></span>
       </div>
     </section>
 
-    <!-- WHY -->
-    <section class="section" id="why">
-      <div class="kicker"><span class="dot"></span><span>WHY</span></div>
-      <h2>Why engineering, and why energy</h2>
-
+    <!-- PORTFOLIO -->
+    <section class="section" id="portfolio">
+      <div class="kicker"><span class="dot"></span><span>PORTFOLIO</span></div>
+      <h2>Selected work</h2>
       <p>
-        I chose engineering because I like work where details matter. I’m interested in systems where safety,
-        procedure, and reliability are not optional. Energy systems feel real to me, because they have clear
-        responsibility and clear impact.
+        A few projects that show what I like working on: practical systems, careful design,
+        and sustainability-minded ideas. I keep this section small and update it when I have something real to add.
       </p>
 
-      <p>
-        Offshore environments interest me for the same reason. They are demanding. You need discipline and
-        careful thinking, and you learn to respect standards. Renewable energy interests me because it is part
-        of the future, and I want to understand how these systems are built and operated.
-      </p>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb">
+            <!-- If you upload an image to your repo, replace this with:
+            <img class="thumbImg" src="animax.jpg" alt="ANIMAX project photo" />
+            -->
+            Add project image (optional)
+          </div>
+          <b>ANIMAX</b>
+          <p class="meta">Robotics project focused on a practical solution for stray animal care.</p>
+          <p class="meta"><a href="#">Project notes / GitHub</a></p>
+        </article>
 
-      <p>
-        Studying for a full academic year in the United States as a FLEX scholarship student shaped how I work.
-        It made me more independent and more serious about learning step by step.
-      </p>
-    </section>
+        <article class="card">
+          <div class="thumb">Add project image (optional)</div>
+          <b>CO2toD</b>
+          <p class="meta">Greentech concept work around CO₂ handling and sustainability thinking.</p>
+          <p class="meta"><a href="#">Project notes</a></p>
+        </article>
 
-    <!-- HOW -->
-    <section class="section" id="how">
-      <div class="kicker"><span class="dot"></span><span>HOW</span></div>
-      <h2>How I learn and grow</h2>
+        <article class="card">
+          <div class="thumb">Add project image (optional)</div>
+          <b>Learning Log</b>
+          <p class="meta">Short notes from what I’m currently studying: circuits, safety basics, system thinking.</p>
+          <p class="meta"><a href="#">Read notes</a></p>
+        </article>
 
-      <p>
-        I learn best by doing small things consistently. I try to connect theory with practice: circuits,
-        electronics, microcontrollers, and basic robotics. I like structured learning, clear documentation,
-        and improving my work after feedback.
-      </p>
-
-      <div class="grid" aria-label="How cards">
-        <div class="card">
-          <b>Hands-on practice</b>
-          <p>Mini builds and experiments that make concepts real: circuits, Arduino, sensors, basic control.</p>
-        </div>
-
-        <div class="card">
-          <b>Projects with purpose</b>
-          <p>I prefer projects that connect to real needs: sustainability, energy use, safety, reliability.</p>
-        </div>
-
-        <div class="card">
-          <b>Communication</b>
-          <p>Teaching and leadership roles helped me explain ideas clearly and work with different people.</p>
-        </div>
-
-        <div class="card">
-          <b>Discipline</b>
-          <p>Exchange experience taught me to be organized, adaptable, and responsible for my progress.</p>
-        </div>
+        <article class="card">
+          <div class="thumb">Add project image (optional)</div>
+          <b>Talks & Community</b>
+          <p class="meta">Technical community involvement and events that keep me close to engineering culture.</p>
+          <p class="meta"><a href="#">Highlights</a></p>
+        </article>
       </div>
     </section>
 
-    <!-- WHAT -->
-    <section class="section" id="what">
-      <div class="kicker"><span class="dot"></span><span>WHAT</span></div>
-      <h2>What I’ve worked on</h2>
-
+    <!-- RESUME (light, not CV-dump) -->
+    <section class="section" id="resume">
+      <div class="kicker"><span class="dot"></span><span>RESUME</span></div>
+      <h2>Quick background</h2>
       <p>
-        Here are a few things that represent what I care about. I keep this list small on purpose and update it
-        when I have something real to add.
+        I’m early in my engineering path. The most important part for me is building a strong foundation and getting practical experience.
+        I studied in the United States for one academic year through the FLEX program, which helped me grow in independence and discipline.
       </p>
+      <p>
+        If you want the full CV: upload your PDF to this repo (example: <b>Gulay_Aliyeva_CV.pdf</b>) and link it here:
+        <a href="Gulay_Aliyeva_CV.pdf">Download CV</a>
+      </p>
+    </section>
 
-      <div class="grid" aria-label="Work cards">
-        <div class="card">
-          <b>Robotics for real-world use (ANIMAX)</b>
-          <p>A team project focused on a practical robotics solution for stray animal care.</p>
-          <p class="small">Add your GitHub link here when you upload code or documentation.</p>
-        </div>
+    <!-- GIVING BACK -->
+    <section class="section" id="giving">
+      <div class="kicker"><span class="dot"></span><span>GIVING BACK</span></div>
+      <h2>Teaching and community</h2>
+      <p>
+        Teaching has been one of the best ways for me to improve communication and stay disciplined.
+        It also keeps me grounded: I like explaining things in simple language and helping others learn step by step.
+      </p>
+    </section>
 
-        <div class="card">
-          <b>Greentech concept work (CO2toD)</b>
-          <p>A sustainability-oriented idea exploring CO₂ handling and conversion concepts as a team project.</p>
-        </div>
-
-        <div class="card">
-          <b>Student leadership and technical community work</b>
-          <p>Involvement in student organizations and technical events that keep me close to engineering culture.</p>
-        </div>
-
-        <div class="card">
-          <b>Teaching</b>
-          <p>Teaching improved my communication and patience. It also made me more organized.</p>
-        </div>
-      </div>
-
-      <div class="split" style="margin-top:14px;">
-        <span class="pill">Currently exploring: Offshore systems · Power distribution · Renewable integration</span>
-        <a class="btn soft" href="#why">Back to Why</a>
-      </div>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="kicker"><span class="dot"></span><span>CONTACT</span></div>
+      <h2>Get in touch</h2>
+      <p>
+        Email: <b><span id="email2">your@email.com</span></b><br/>
+        LinkedIn: <a href="#" target="_blank" rel="noreferrer">add your link</a>
+      </p>
     </section>
 
     <footer>
       Minimal portfolio · Times New Roman · baby blue + baby green
     </footer>
-
   </div>
 
   <script>
-    // Theme toggle (Light <-> Dim)
-    const themeBtn = document.getElementById('themeBtn');
-    const root = document.documentElement;
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dim') root.setAttribute('data-theme', 'dim');
-
-    function syncThemeLabel(){
-      const isDim = root.getAttribute('data-theme') === 'dim';
-      themeBtn.textContent = isDim ? 'Light' : 'Dim';
-    }
-    syncThemeLabel();
-
-    themeBtn.addEventListener('click', () => {
-      const isDim = root.getAttribute('data-theme') === 'dim';
-      if (isDim) root.removeAttribute('data-theme');
-      else root.setAttribute('data-theme', 'dim');
-      localStorage.setItem('theme', root.getAttribute('data-theme') === 'dim' ? 'dim' : 'light');
-      syncThemeLabel();
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      const isHidden = mobileMenu.hasAttribute('hidden');
+      if (isHidden) mobileMenu.removeAttribute('hidden');
+      else mobileMenu.setAttribute('hidden', '');
     });
 
     // Copy email
-    const copyEmailBtn = document.getElementById('copyEmailBtn');
-    const emailText = document.getElementById('emailText');
+    const copyBtn = document.getElementById('copyBtn');
+    const email = document.getElementById('email');
+    const email2 = document.getElementById('email2');
+    email2.textContent = email.textContent;
 
-    copyEmailBtn.addEventListener('click', async () => {
+    copyBtn.addEventListener('click', async () => {
       try{
-        await navigator.clipboard.writeText(emailText.textContent.trim());
-        copyEmailBtn.textContent = 'Copied';
-        setTimeout(() => copyEmailBtn.textContent = 'Copy email', 1200);
+        await navigator.clipboard.writeText(email.textContent.trim());
+        copyBtn.textContent = "Copied";
+        setTimeout(() => copyBtn.textContent = "Copy email", 1200);
       }catch(e){
-        copyEmailBtn.textContent = 'Copy failed';
-        setTimeout(() => copyEmailBtn.textContent = 'Copy email', 1200);
+        copyBtn.textContent = "Copy failed";
+        setTimeout(() => copyBtn.textContent = "Copy email", 1200);
       }
-    });
-
-    // Soft highlight when navigating
-    document.querySelectorAll('.navlink').forEach(a => {
-      a.addEventListener('click', () => {
-        const id = a.getAttribute('href');
-        const el = document.querySelector(id);
-        if (!el) return;
-        setTimeout(() => {
-          el.classList.remove('flash');
-          void el.offsetWidth;
-          el.classList.add('flash');
-        }, 120);
-      });
     });
   </script>
 </body>
